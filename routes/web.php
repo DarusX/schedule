@@ -11,6 +11,10 @@
 |
 */
 
+Route::resources([
+    'course' => 'CourseController'
+]);
+
 Route::get('/', function () {
     return view('welcome');
 });

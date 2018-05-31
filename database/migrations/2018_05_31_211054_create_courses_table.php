@@ -21,6 +21,9 @@ class CreateCoursesTable extends Migration
             $table->integer('classroom_id')->unsigned();
             $table->integer('professor_id')->unsigned();
             $table->timestamps();
+
+            $table->unique(['hour_id', 'professor_id']);
+            $table->unique(['hour_id', 'classroom_id']);
         });
     }
 
