@@ -15,9 +15,17 @@ Route::resources([
     'course' => 'CourseController',
     'professor' => 'ProfessorController',
     'language' => 'LanguageController',
-    'hour' => 'HourController'
+    'hour' => 'HourController',
+    'classroom' => 'ClassroomController',
+    'period' => 'PeriodController'
 ]);
-
+Route::prefix('table')->group(function(){
+    Route::get('professor/{id}/courses', 'ProfessorController@courses')->name('professor.courses');
+    Route::get('professor/{id}/history', 'ProfessorController@history')->name('professor.history');
+    Route::get('hour/{id}/courses', 'HourController@courses')->name('hour.courses');
+    Route::get('language/{id}/courses', 'LanguageController@courses')->name('language.courses');
+    Route::get('classroom/{id}/courses', 'ClassroomController@courses')->name('classroom.courses');
+});
 Route::get('/', function () {
     return view('welcome');
 });

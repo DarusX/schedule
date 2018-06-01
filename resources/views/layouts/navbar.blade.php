@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="{{asset('img/logo.png')}}" alt="" height="20px">
             </a>
         </div>
 
@@ -83,28 +83,21 @@
                 <!-- Authentication Links -->
                 @guest
                 <li>
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('menu.login')</a>
                 </li>
                 <li>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('menu.register')</a>
                 </li>
                 @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                        {{ Auth::user()->name }}
+                        <i class="fas fa-user"></i> {{ Auth::user()->name }}
                         <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+                            <a href="{{route('logout')}}" class="logout">@lang('menu.logout')</a>
                         </li>
                     </ul>
                 </li>

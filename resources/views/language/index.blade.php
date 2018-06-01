@@ -13,10 +13,10 @@
             @foreach($languages as $language)
             <tr>
                 <td><a href="{{route('language.show', $language)}}">{{$language->language}}</a></td>
-                <td>{{$language->courses->count()}}</td>
+                <td>{{$language->courses()->current()->count()}}</td>
                 <td>
-                    <a href="{{route('language.destroy', $language)}}" class="btn btn-danger btn-xs destroy">E</a>
-                    <a href="{{route('language.edit', $language)}}" class="btn btn-success btn-xs">E</a>
+                    <a href="{{route('language.destroy', $language)}}" class="btn btn-danger btn-xs destroy"><i class="fas fa-times"></i></a>
+                    <a href="{{route('language.edit', $language)}}" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
                 </td>
             </tr>
             @endforeach

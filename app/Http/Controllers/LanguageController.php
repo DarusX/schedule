@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Language;
+use Gate;
 
 class LanguageController extends Controller
 {
@@ -16,7 +17,9 @@ class LanguageController extends Controller
 
     public function create()
     {
-        return view('language.create');
+        if(Gate::allows('language.create')){
+            return view('language.create');
+        }
     }
 
     public function store(Request $request)
@@ -29,7 +32,18 @@ class LanguageController extends Controller
     public function show($id)
     {
         return view('language.show')->with([
-            'language' => Language::find($id)
+            'language' => Language::with(['courses' => function($query){
+                $query->current();
+            }])->find($id)
         ]);
+    }
+
+    public function courses($id)
+    {
+        return view('component.courses')->with([
+            'courses' => Language::find($id)->courses()->current()->get(),
+            'show' => false
+        ]);
+        
     }
 }

@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+@section('content')
 <div class="col-sm-12">
     <legend>@lang('title.hours')</legend>
     <table class="table table-hover">
@@ -13,10 +14,10 @@
             @foreach($hours as $hour)
             <tr>
                 <td><a href="{{route('hour.show', $hour)}}">{{$hour->hour}}</a></td>
-                <td>{{$hour->courses->count()}}</td>
+                <td>{{$hour->courses()->current()->count()}}</td>
                 <td>
-                    <a href="{{route('hour.destroy', $hour)}}" class="btn btn-danger btn-xs destroy">E</a>
-                    <a href="{{route('hour.edit', $hour)}}" class="btn btn-success btn-xs">E</a>
+                    <a href="{{route('hour.destroy', $hour)}}" class="btn btn-danger btn-xs destroy"><i class="fas fa-times"></i></a>
+                    <a href="{{route('hour.edit', $hour)}}" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
                 </td>
             </tr>
             @endforeach

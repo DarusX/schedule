@@ -12,23 +12,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style>
-        body{
-            background-image: url("{{asset('img/bg.jpg')}}");
-            background-attachment: fixed;
-            background-position-x: center;
-            background-position-y: center;
-            background-size: cover;
-        }
-        .navbar{
-            margin-bottom: unset;
-        }
-        #app>.container-fluid{
-            background: rgba(255, 255, 255, 0.95);
-            height: 100%;
-            padding-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/axolotl.css')}}">
     @yield('css')
 </head>
 <body>
@@ -45,30 +30,7 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': "{{csrf_token()}}"
-            }
-        })
-        $(".destroy").click(function(){
-            event.preventDefault()
-            $.ajax({
-                url: $(this).attr("href"),
-                method: "DELETE",
-                success: function(data){
-                    location.reload()
-                }
-            })
-        })
-        containerSize()
-        function containerSize(){
-            $("#app>.container-fluid").css("min-height", windowSize()-52);
-        }
-        function windowSize(){
-            return $(window).innerHeight();
-        }
-    </script>
+    <script src="{{asset('js/axolotl.js')}}"></script>
     @yield('scripts')
 </body>
 </html>

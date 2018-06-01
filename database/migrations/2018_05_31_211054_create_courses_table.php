@@ -15,6 +15,7 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('period_id')->unsigned();
             $table->integer('language_id')->unsigned();
             $table->integer('level');
             $table->integer('hour_id')->unsigned();
@@ -22,8 +23,8 @@ class CreateCoursesTable extends Migration
             $table->integer('professor_id')->unsigned();
             $table->timestamps();
 
-            $table->unique(['hour_id', 'professor_id']);
-            $table->unique(['hour_id', 'classroom_id']);
+            $table->unique(['period_id', 'hour_id', 'professor_id']);
+            $table->unique(['period_id', 'hour_id', 'classroom_id']);
         });
     }
 

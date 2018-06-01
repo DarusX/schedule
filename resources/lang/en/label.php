@@ -3,12 +3,10 @@ return [
     'language' => 'Language',
     'level' => 'Level',
     'hour' => 'Hour',
-    'professor' => 'Professor',
     'classroom' => 'Classroom',
-    'actions' => 'Actions',
+    'professor' => 'Professor',
     'name' => 'Name',
+    'lastname' => 'Lastname',
     'max_hours' => 'Max. Hours',
-    'used_hours' => 'Used Hours',
-    'courses' => 'Courses',
     'period' => 'Period'
 ];

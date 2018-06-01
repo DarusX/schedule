@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $fillable = [
-        'language_id', 'level', 'hour_id', 'classroom_id', 'professor_id'
+        'period_id', 'language_id', 'level', 'hour_id', 'classroom_id', 'professor_id'
     ];
+
+    public function period()
+    {
+        return $this->belongsTo(Period::class);
+    }
 
     public function language()
     {
@@ -31,5 +36,10 @@ class Course extends Model
             'id' => 0,
             'classroom' => 'N/A'
         ]);
+    }
+
+    public function scopeCurrent($query)
+    {
+        return $query->where('period_id', Period::max('id'));
     }
 }

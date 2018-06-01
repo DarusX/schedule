@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Classroom extends Model
+class Period extends Model
 {
     protected $fillable = [
-        'classroom'
+        'period'
     ];
 
     public function courses()

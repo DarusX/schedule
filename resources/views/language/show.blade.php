@@ -2,34 +2,6 @@
 <div class="col-sm-12">
     <legend>{{$language->language}}</legend>
 </div>
-<div class="col-sm-12">
-    <legend>@lang('title.courses')</legend>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>@lang('head.language')</th>
-                <th>@lang('head.level')</th>
-                <th>@lang('head.hour')</th>
-                <th>@lang('head.professor')</th>
-                <th>@lang('head.classroom')</th>
-                <th>@lang('head.actions')</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($language->courses as $course)
-            <tr>
-                <td><a href="{{route('language.show', $course->language)}}">{{$course->language->language}}</a></td>
-                <td>{{$course->level}}</td>
-                <td>{{$course->hour->hour}}</td>
-                <td><a href="{{route('professor.show', $course)}}">{{$course->professor->fullName}}</a></td>
-                <td>{{$course->classroom->classroom}}</td>
-                <td>
-                    <a href="{{route('course.destroy', $course)}}" class="btn btn-danger btn-xs destroy">E</a>
-                    <a href="{{route('course.edit', $course)}}" class="btn btn-success btn-xs">E</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+@component('component.courses', ['courses' => $language->courses, 'show' => true])
+@endcomponent
 @endsection

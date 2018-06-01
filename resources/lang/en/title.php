@@ -4,5 +4,7 @@ return [
     'professor' => 'Professor',
     'courses' => 'Courses',
     'course' => 'Course',
-    'languages' => 'Languages'
+    'languages' => 'Languages',
+    'language' => 'Language',
+    'hours' => 'Hours'
 ];

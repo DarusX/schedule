@@ -5,6 +5,14 @@
     <form action="{{route('course.store')}}" method="post">
         {{csrf_field()}}
         <div class="form-group input-group-sm">
+            <label for="" class="">@lang('label.period')</label>
+            <select name="period_id" class="form-control">
+                @foreach($periods as $period)
+                <option value="{{$period->id}}">{{$period->period}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group input-group-sm">
             <label for="" class="">@lang('label.language')</label>
             <select name="language_id" class="form-control">
                 @foreach($languages as $language)

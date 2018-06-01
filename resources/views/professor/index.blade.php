@@ -19,10 +19,10 @@
             <tr>
                 <td><a href="{{route('professor.show', $professor)}}">{{$professor->fullName}}</a></td>
                 <td>{{$professor->max_hours}}</td>
-                <td>{{$professor->courses->count()}}</td>
+                <td>{{$professor->courses()->current()->count()}}</td>
                 <td>
-                    <a href="{{route('professor.destroy', $professor)}}" class="btn btn-danger btn-xs destroy">E</a>
-                    <a href="{{route('professor.edit', $professor)}}" class="btn btn-success btn-xs">E</a>
+                    <a href="{{route('professor.destroy', $professor)}}" class="btn btn-danger btn-xs destroy"><i class="fas fa-times"></i></a>
+                    <a href="{{route('professor.edit', $professor)}}" class="btn btn-success btn-xs"><i class="fas fa-pencil-alt"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -33,8 +33,13 @@
 @endsection
 @section('scripts')
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 <script>
-    $(".table").DataTable()
+    $(".table").DataTable({
+        language: {
+            url: "{{asset('json/pt.json')}}"
+        }
+    })
 
 </script>
 @endsection

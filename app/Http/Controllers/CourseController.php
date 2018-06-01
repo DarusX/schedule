@@ -8,13 +8,15 @@ use App\Hour;
 use App\Language;
 use App\Professor;
 use App\Course;
+use App\Period;
+use Gate;
 
 class CourseController extends Controller
 {
     public function index()
     {
         return view('course.index')->with([
-            'courses' => Course::all()
+            'courses' => Course::current()->get()
         ]);
     }
     public function create()
@@ -23,7 +25,8 @@ class CourseController extends Controller
             'classrooms' => Classroom::all(),
             'hours' => Hour::all(),
             'languages' => Language::all(),
-            'professors' => Professor::all()
+            'professors' => Professor::all(),
+            'periods' => Period::orderBy('id', 'DESC')->get()
         ]);
     }
     public function store(Request $request)
@@ -49,5 +52,11 @@ class CourseController extends Controller
         Course::find($id)->update($request->all());
         \Session::flash('success', '');
         return redirect()->back();
+    }
+
+    public function destroy($id)
+    {
+        $this->authorize('course.delete', $id);
+        Course::destroy($id);
     }
 }

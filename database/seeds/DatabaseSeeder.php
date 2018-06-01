@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Hour;
 use App\Language;
 use App\Professor;
+use App\Period;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -34,6 +35,11 @@ class DatabaseSeeder extends Seeder
         Language::create(['language' => 'Italiano']);
         Language::create(['language' => 'Portugués']);
         Language::create(['language' => 'Japonés']);
+
+        Period::create(['period' => '2016B']);
+        Period::create(['period' => '2017A']);
+        Period::create(['period' => '2017B']);
+        Period::create(['period' => '2018A']);
 
         factory(App\Classroom::class, 50)->create();
         factory(App\Professor::class, 100)->create();
