@@ -27,6 +27,7 @@
         <div class="form-group input-group-sm">
             <label for="" class="">@lang('label.classroom')</label>
             <select name="classroom_id" class="form-control">
+                <option value=""></option>
                 @foreach($classrooms as $classroom)
                 <option value="{{$classroom->id}}">{{$classroom->classroom}}</option>
                 @endforeach

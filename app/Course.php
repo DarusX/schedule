@@ -24,4 +24,12 @@ class Course extends Model
     {
         return $this->belongsTo(Professor::class);
     }
+
+    public function classroom()
+    {
+        return $this->belongsTo(Classroom::class)->withDefault([
+            'id' => 0,
+            'classroom' => 'N/A'
+        ]);
+    }
 }

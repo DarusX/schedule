@@ -12,7 +12,10 @@
 */
 
 Route::resources([
-    'course' => 'CourseController'
+    'course' => 'CourseController',
+    'professor' => 'ProfessorController',
+    'language' => 'LanguageController',
+    'hour' => 'HourController'
 ]);
 
 Route::get('/', function () {

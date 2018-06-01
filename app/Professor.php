@@ -14,4 +14,9 @@ class Professor extends Model
     {
         return $this->name . ' ' . $this->lastname;
     }
+
+    public function courses()
+    {
+        return $this->hasmany(Course::class);
+    }
 }

@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hour extends Model
 {
-    //
+    protected $fillable = [
+        'hour'
+    ];
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

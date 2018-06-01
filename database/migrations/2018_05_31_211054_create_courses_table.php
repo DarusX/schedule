@@ -18,7 +18,7 @@ class CreateCoursesTable extends Migration
             $table->integer('language_id')->unsigned();
             $table->integer('level');
             $table->integer('hour_id')->unsigned();
-            $table->integer('classroom_id')->unsigned();
+            $table->integer('classroom_id')->unsigned()->nullable();
             $table->integer('professor_id')->unsigned();
             $table->timestamps();
 
