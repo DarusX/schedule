@@ -3,17 +3,22 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use App\Professor;
+use App\Course;
 
 class MaxHours implements Rule
 {
+
+    public $professorId;
     /**
      * Create a new rule instance.
      *
      * @return void
      */
+    
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -25,7 +30,11 @@ class MaxHours implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $attribute->all();
+        $professor = Professor::find($value);
+        $courses = Course::where('professor_id', $value)->count();
+        if ($courses < $professor->max_hours) {
+            return true;
+        }
         return false;
     }
 

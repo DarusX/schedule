@@ -14,7 +14,11 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Course::class => CoursePolicy::class,
-        Language::class => LanguagePolicy::class
+        Professor::class => ProfessorPolicy::class,
+        Classroom::class => ClassroomPolicy::class,
+        Period::class => PeriodPolicy::class,
+        Language::class => LanguagePolicy::class,
+        Hour::class => HourPolicy::class
     ];
 
     /**
@@ -26,7 +30,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::resource('language', 'App\Policies\LanguagePolicy');
-        Gate::resource('course', 'App\Policies\CoursePolicy');
+        Gate::resource('course', \App\Policies\CoursePolicy::class);
+        Gate::resource('professor', \App\Policies\ProfessorPolicy::class);
+        Gate::resource('classroom', \App\Policies\ClassroomPolicy::class);
+        Gate::resource('period', \App\Policies\PeriodPolicy::class);
+        Gate::resource('language', \App\Policies\LanguagePolicy::class);
+        Gate::resource('hour', \App\Policies\HourPolicy::class);
+
+
     }
 }

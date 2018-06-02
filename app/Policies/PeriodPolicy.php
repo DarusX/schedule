@@ -3,27 +3,27 @@
 namespace App\Policies;
 
 use App\User;
-use App\Course;
+use App\Period;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CoursePolicy
+class PeriodPolicy
 {
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the course.
+     * Determine whether the user can view the period.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Period  $period
      * @return mixed
      */
-    public function view(User $user, Course $course)
+    public function view(User $user, Period $period)
     {
-        return true;
+        //
     }
 
     /**
-     * Determine whether the user can create courses.
+     * Determine whether the user can create periods.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -34,25 +34,25 @@ class CoursePolicy
     }
 
     /**
-     * Determine whether the user can update the course.
+     * Determine whether the user can update the period.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Period  $period
      * @return mixed
      */
-    public function update(User $user, Course $course)
+    public function update(User $user, Period $period)
     {
         return true;
     }
 
     /**
-     * Determine whether the user can delete the course.
+     * Determine whether the user can delete the period.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Period  $period
      * @return mixed
      */
-    public function delete(User $user, $id)
+    public function delete(User $user, Period $period)
     {
         return true;
     }

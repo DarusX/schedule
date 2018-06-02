@@ -38,7 +38,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'professor_id' => 'maxHours'
+            'professor_id' => [new MaxHours()]
         ]);
         Course::create($request->all());
         \Session::flash('success', '');

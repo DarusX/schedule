@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.panel') 
+@section('panel')
 <div class="col-sm-12">
     <legend>{{$professor->fullName}}</legend>
     <p>{{$professor->courses->count()}}/{{$professor->max_hours}}</p>

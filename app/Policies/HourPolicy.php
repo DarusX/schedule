@@ -3,27 +3,27 @@
 namespace App\Policies;
 
 use App\User;
-use App\Course;
+use App\Hour;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class CoursePolicy
+class HourPolicy
 {
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the course.
+     * Determine whether the user can view the hour.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Hour  $hour
      * @return mixed
      */
-    public function view(User $user, Course $course)
+    public function view(User $user, Hour $hour)
     {
-        return true;
+        //
     }
 
     /**
-     * Determine whether the user can create courses.
+     * Determine whether the user can create hours.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -34,25 +34,25 @@ class CoursePolicy
     }
 
     /**
-     * Determine whether the user can update the course.
+     * Determine whether the user can update the hour.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Hour  $hour
      * @return mixed
      */
-    public function update(User $user, Course $course)
+    public function update(User $user, Hour $hour)
     {
         return true;
     }
 
     /**
-     * Determine whether the user can delete the course.
+     * Determine whether the user can delete the hour.
      *
      * @param  \App\User  $user
-     * @param  \App\Course  $course
+     * @param  \App\Hour  $hour
      * @return mixed
      */
-    public function delete(User $user, $id)
+    public function delete(User $user, Hour $hour)
     {
         return true;
     }

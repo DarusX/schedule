@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.panel')
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 @endsection
-@section('content')
+@section('panel')
 @component('component.courses', ['courses' => $courses, 'show' => true])
 @endcomponent
 @endsection

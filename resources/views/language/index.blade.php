@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.panel') 
+@section('panel')
 <div class="col-sm-12">
     <legend>@lang('title.languages')</legend>
     <table class="table table-hover">

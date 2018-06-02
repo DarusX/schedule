@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.panel')
+@section('panel')
 <div class="col-sm-6">
     <legend>@lang('title.course')</legend>
     <form action="{{route('course.store')}}" method="post">

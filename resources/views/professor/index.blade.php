@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.panel')
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 @endsection
-@section('content')
+@section('panel')
 <div class="col-sm-12">
     <legend>@lang('title.professors')</legend>
     <table class="table table-hover">
