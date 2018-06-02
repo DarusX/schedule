@@ -8,6 +8,11 @@ USE App\Period;
 
 class ProfessorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('professor.index')->with([
@@ -27,6 +32,17 @@ class ProfessorController extends Controller
         return redirect()->back();
     }
 
+    public function edit($id)
+    {
+        return view('professor.edit')->with([
+            'professor' => Professor::find($id)
+        ]);
+    }
+    public function update(request $request, $id)
+    {
+        Professor::find($id)->update($request->all());
+        return redirect()->back();
+    }
     public function show($id)
     {
         return view('professor.show')->with([

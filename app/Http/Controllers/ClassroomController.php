@@ -7,11 +7,21 @@ use App\Classroom;
 
 class ClassroomController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('classroom.index')->with([
             'classrooms' => Classroom::all()
         ]);
+    }
+
+    public function create()
+    {
+        return view('classroom.create');
     }
 
     public function show($id)
@@ -21,6 +31,17 @@ class ClassroomController extends Controller
                 $query->current();
             }])->find($id)
         ]);
+    }
+    public function edit($id)
+    {
+        return view('classroom.edit')->with([
+            'classroom' => Classroom::find($id)
+        ]);
+    }
+    public function update(Request $request, $id)
+    {
+        Classroom::find($id)->update($request->all());
+        return redirect()->back();
     }
     public function courses($id)
     {

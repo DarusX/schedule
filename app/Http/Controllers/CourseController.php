@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\MaxHours;
 use App\Classroom;
 use App\Hour;
 use App\Language;
@@ -13,6 +14,11 @@ use Gate;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('course.index')->with([
@@ -31,6 +37,9 @@ class CourseController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'professor_id' => 'maxHours'
+        ]);
         Course::create($request->all());
         \Session::flash('success', '');
         return redirect()->back();

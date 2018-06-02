@@ -7,5 +7,7 @@ return [
     'hours' => 'Hours',
     'login' => 'Login',
     'logout' => 'Logout',
-    'register' => 'Register'
+    'register' => 'Register',
+    'periods' => 'Periods',
+    'classrooms' => 'Classrooms'
 ];

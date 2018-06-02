@@ -19,6 +19,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                @if(!Auth::guest())
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                         @lang('menu.courses')
@@ -76,6 +77,37 @@
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        @lang('menu.periods')
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{route('period.index')}}">@lang('menu.periods')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('period.create')}}">@lang('menu.create')</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        @lang('menu.classrooms')
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{route('classroom.index')}}">@lang('menu.classrooms')</a>
+                        </li>
+                        <li>
+                            <a href="{{route('classroom.create')}}">@lang('menu.create')</a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->

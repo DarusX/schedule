@@ -30,18 +30,19 @@ class DatabaseSeeder extends Seeder
         Hour::create(['hour' => '20:00:00']);
         Hour::create(['hour' => '21:00:00']);
 
+        
+        Period::create(['period' => '2016B']);
+        Period::create(['period' => '2017A']);
+        Period::create(['period' => '2017B']);
+        /*
         Language::create(['language' => 'Inglés']);
         Language::create(['language' => 'Francés']);
         Language::create(['language' => 'Italiano']);
         Language::create(['language' => 'Portugués']);
         Language::create(['language' => 'Japonés']);
-
-        Period::create(['period' => '2016B']);
-        Period::create(['period' => '2017A']);
-        Period::create(['period' => '2017B']);
-        Period::create(['period' => '2018A']);
-
+        
         factory(App\Classroom::class, 50)->create();
         factory(App\Professor::class, 100)->create();
+        */
     }
 }

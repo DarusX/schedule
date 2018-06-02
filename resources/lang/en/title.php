@@ -6,5 +6,9 @@ return [
     'course' => 'Course',
     'languages' => 'Languages',
     'language' => 'Language',
-    'hours' => 'Hours'
+    'hours' => 'Hours',
+    'periods' => 'Periods',
+    'period' => 'Period',
+    'classrooms' => 'Classrooms',
+    'classroom' => 'Classroom'
 ];
