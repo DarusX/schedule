@@ -36,11 +36,15 @@ $(".link-modal").click(function () {
             $("#modal-info .info").html(data)
             $(this).children().addClass(lastClasses)
             $(this).children().removeClass("fa-spinner fa-spin")
+            $("table").dataTable()
         }
     }).error((data) => {
         $(this).children().addClass("fas fa-exclamation-circle")
         $(this).children().removeClass("fa-spinner fa-spin")
     })
+})
+$(window).resize(function(){
+    containerSize()
 })
 containerSize()
 function containerSize() {

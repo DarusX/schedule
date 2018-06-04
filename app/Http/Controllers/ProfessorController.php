@@ -16,7 +16,9 @@ class ProfessorController extends Controller
     public function index()
     {
         return view('professor.index')->with([
-            'professors' => Professor::all()
+            'professors' => Professor::with(['courses' => function($query){
+                $query->current();
+            }])->get()
         ]);
     }
 
@@ -69,7 +71,14 @@ class ProfessorController extends Controller
         $lastPeriods = Period::select('id')->where('id', '<', Period::max('id'))->limit(2)->get();
         return view('component.courses')->with([
             'courses' => Professor::find($id)->courses()->whereIn('period_id', $lastPeriods)->get(),
-            'show' => false
+        ]);
+    }
+    public function search(Request $request)
+    {
+        return view('professor.index')->with([
+            'professors' => Professor::with(['courses' => function($query){
+                $query->current();
+            }])->where('name', 'LIKE', '%'.$request->query('name').'%')->get()
         ]);
     }
 }

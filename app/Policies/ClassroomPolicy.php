@@ -52,7 +52,7 @@ class ClassroomPolicy
      * @param  \App\Classroom  $classroom
      * @return mixed
      */
-    public function delete(User $user, Classroom $classroom)
+    public function delete(User $user, $id)
     {
         return true;
     }

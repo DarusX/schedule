@@ -63,6 +63,27 @@ a:hover{
 .list-group-item{
     border-color: #f44336;
 }
+.list-group-form{
+    padding: unset;
+}
+.list-group-form .form-control {
+    border: none;
+}
+.list-group-form .btn{
+    border: none;
+    background: #fff;
+    color: #f44336;
+}
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{
     border-top-color: #f44336;
+}
+.tile{
+    background: #f44336;
+    color: #fff;
+    top: 50%;
+    border-radius: 4px;
+}
+.tile-text{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

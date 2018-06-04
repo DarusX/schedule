@@ -24,6 +24,12 @@ class ClassroomController extends Controller
         return view('classroom.create');
     }
 
+    public function store(Request $request)
+    {
+        Classroom::create($request->all());
+        return redirect()->back();
+    }
+
     public function show($id)
     {
         return view('classroom.show')->with([
@@ -43,6 +49,13 @@ class ClassroomController extends Controller
         Classroom::find($id)->update($request->all());
         return redirect()->back();
     }
+
+    public function destroy($id)
+    {
+        $this->authorize('classroom.delete', $id);
+        Classroom::destroy($id);
+    }
+    
     public function courses($id)
     {
         return view('component.courses')->with([

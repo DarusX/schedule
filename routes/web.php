@@ -20,6 +20,7 @@ Route::resources([
     'period' => 'PeriodController'
 ]);
 Route::prefix('table')->group(function(){
+    Route::get('professor/search', 'ProfessorController@search')->name('professor.search');
     Route::get('professor/{id}/courses', 'ProfessorController@courses')->name('professor.courses');
     Route::get('professor/{id}/history', 'ProfessorController@history')->name('professor.history');
     Route::get('hour/{id}/courses', 'HourController@courses')->name('hour.courses');

@@ -3,22 +3,19 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use App\Professor;
 use App\Course;
-use App\Period;
 
-class MaxHours implements Rule
+class UniqueClassroom implements Rule
 {
-
+    public $request;
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    
-    public function __construct()
+    public function __construct($request)
     {
-
+        $this->request = $request;
     }
 
     /**
@@ -30,7 +27,7 @@ class MaxHours implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (Course::where([['professor_id', '=', $value], ['period_id', '=', Period::max('id')]])->count() < Professor::find($value)->max_hours) {
+        if (Course::where([['period_id', $this->request->period_id], ['hour_id', $this->request->hour_id], ['classroom_id', $this->request->classroom_id]])->count() == 0) {
             return true;
         }
         return false;
@@ -43,6 +40,6 @@ class MaxHours implements Rule
      */
     public function message()
     {
-        return trans('message.max_hours');
+        return trans('message.unique_classroom');
     }
 }
