@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     protected $fillable = [
-        'period_id', 'language_id', 'level', 'hour_id', 'classroom_id', 'professor_id'
+        'period_id', 'language_id', 'level', 'group', 'hour_id', 'classroom_id', 'professor_id'
     ];
 
     public function period()
@@ -27,14 +27,17 @@ class Course extends Model
 
     public function professor()
     {
-        return $this->belongsTo(Professor::class);
+        return $this->belongsTo(Professor::class)->withDefault([
+            'id' => 0,
+            'name' => trans('model.unasigned'),
+        ]);
     }
 
     public function classroom()
     {
         return $this->belongsTo(Classroom::class)->withDefault([
             'id' => 0,
-            'classroom' => 'N/A'
+            'classroom' => trans('model.unasigned')
         ]);
     }
 

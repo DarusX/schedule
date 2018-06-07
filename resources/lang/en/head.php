@@ -10,5 +10,6 @@ return [
     'max_hours' => 'Max. Hours',
     'used_hours' => 'Used Hours',
     'courses' => 'Courses',
-    'period' => 'Period'
+    'period' => 'Period',
+    'group' => 'Group'
 ];

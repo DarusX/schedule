@@ -27,6 +27,9 @@ class UniqueClassroom implements Rule
      */
     public function passes($attribute, $value)
     {
+        if(!isset($value)){
+            return true;
+        }
         if (Course::where([['period_id', $this->request->period_id], ['hour_id', $this->request->hour_id], ['classroom_id', $this->request->classroom_id]])->count() == 0) {
             return true;
         }

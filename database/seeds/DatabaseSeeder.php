@@ -34,13 +34,14 @@ class DatabaseSeeder extends Seeder
         Period::create(['period' => '2016B']);
         Period::create(['period' => '2017A']);
         Period::create(['period' => '2017B']);
-        /*
+        
         Language::create(['language' => 'Inglés']);
         Language::create(['language' => 'Francés']);
         Language::create(['language' => 'Italiano']);
         Language::create(['language' => 'Portugués']);
         Language::create(['language' => 'Japonés']);
         
+        /*
         factory(App\Classroom::class, 50)->create();
         factory(App\Professor::class, 100)->create();
         */

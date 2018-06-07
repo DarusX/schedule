@@ -27,6 +27,9 @@ class UniqueHour implements Rule
      */
     public function passes($attribute, $value)
     {
+        if(!isset($this->request->professor_id)){
+            return true;
+        }
         if (Course::where([['period_id', $this->request->period_id], ['hour_id', $this->request->hour_id], ['professor_id', $this->request->professor_id]])->count() == 0) {
             return true;
         }

@@ -8,5 +8,6 @@ return [
     'name' => 'Name',
     'lastname' => 'Lastname',
     'max_hours' => 'Max. Hours',
-    'period' => 'Period'
+    'period' => 'Period',
+    'group' => 'Group'
 ];

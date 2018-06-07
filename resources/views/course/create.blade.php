@@ -22,13 +22,17 @@
         </div>
         <div class="form-group input-group-sm">
             <label for="" class="">@lang('label.level')</label>
-            <input type="number" name="level" class="form-control">
+            <input type="number" name="level" class="form-control" value="{{old('level')}}">
+        </div>
+        <div class="form-group input-group-sm">
+            <label for="" class="">@lang('label.group')</label>
+            <input type="text" name="group" class="form-control" value="{{old('group')}}">
         </div>
         <div class="form-group input-group-sm">
             <label for="" class="">@lang('label.hour')</label>
             <select name="hour_id" class="form-control">
                 @foreach($hours as $hour)
-                <option value="{{$hour->id}}">{{$hour->hour}}</option>
+                <option value="{{$hour->id}}" {{($hour->id == old('hour_id')? 'selected':'')}}>{{$hour->hour}}</option>
                 @endforeach
             </select>
         </div>
@@ -44,6 +48,7 @@
         <div class="form-group input-group-sm">
             <label for="" class="">@lang('label.professor')</label>
             <select name="professor_id" class="form-control">
+                <option value=""></option>
                 @foreach($professors as $professor)
                 <option value="{{$professor->id}}">{{$professor->fullName}}</option>
                 @endforeach

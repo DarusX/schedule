@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rules\MaxHours;
+use App\Rules\UniqueGroup;
 use App\Rules\UniqueHour;
 use App\Rules\UniqueClassroom;
 use App\Classroom;
@@ -44,9 +45,10 @@ class CourseController extends Controller
             'period_id' => 'required',
             'language_id' => 'required',
             'level' => 'required',
+            'group' => ['required', new UniqueGroup($request)],
             'hour_id' => ['required', new UniqueHour($request)],
             'classroom_id' => ['sometimes', new UniqueClassroom($request)],
-            'professor_id' => ['required', new MaxHours()],
+            'professor_id' => ['sometimes', new MaxHours()],
         ]);
         Course::create($request->all());
         Session::flash('message', trans('message.record_saved'));

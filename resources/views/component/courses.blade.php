@@ -8,6 +8,8 @@
                 <th>
                     <i class="fas fa-expand-arrows-alt"></i> @lang('head.level')</th>
                 <th>
+                    <i class="fas fa-barcode"></i> @lang('head.group')</th>
+                <th>
                     <i class="far fa-calendar-alt"></i> @lang('head.period')</th>
                 <th>
                     <i class="fas fa-clock"></i> @lang('head.hour')</th>
@@ -32,6 +34,7 @@
                     <a href="{{route('language.show', $course->language)}}">{{$course->language->language}}</a>
                 </td>
                 <td>{{$course->level}}</td>
+                <td>{{$course->group}}</td>
                 <td><a href="{{route('period.show', $course->period)}}">{{$course->period->period}}</a></td>
                 <td>
                     @if($show)
