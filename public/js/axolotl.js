@@ -23,6 +23,9 @@ $(".logout").click(function(){
         }
     })
 })
+$(".table").not(".modal .table").DataTable({
+    paging: false
+})
 $(".link-modal").click(function () {
     event.preventDefault()
     let lastClasses = $(this).children().attr("class");
