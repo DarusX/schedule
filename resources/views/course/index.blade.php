@@ -1,16 +1,21 @@
-@extends('layouts.panel')
-@section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-@endsection
-@section('panel')
-@component('component.courses', ['courses' => $courses, 'show' => true])
-@endcomponent
-@endsection
-@section('scripts')
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<script>
-    $(".table").DataTable()
-
-</script>
+@extends('layouts.panel') 
+@section('content')
+<header class="page-header">
+    <div class="container-fluid">
+        <h2 class="no-margin-bottom">@lang('menu.courses')</h2>
+    </div>
+</header>
+<section>
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center">
+                <h3 class="h4">@lang('menu.courses')</h3>
+            </div>
+            <div class="card-body">
+                @component('component.courses', ['courses' => $courses, 'show' => true])
+                @endcomponent
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

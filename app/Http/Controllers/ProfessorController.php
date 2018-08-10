@@ -71,6 +71,7 @@ class ProfessorController extends Controller
         $lastPeriods = Period::select('id')->where('id', '<', Period::max('id'))->limit(2)->get();
         return view('component.courses')->with([
             'courses' => Professor::find($id)->courses()->whereIn('period_id', $lastPeriods)->get(),
+            'show' => false
         ]);
     }
     public function search(Request $request)

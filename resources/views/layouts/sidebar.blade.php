@@ -1,3 +1,4 @@
+{{--
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         <div class="panel-heading" id="headingOne">
@@ -56,7 +57,9 @@
                         <div class="input-group">
                             <input type="text" class="form-control" name="name" placeholder="@lang('placeholder.name')">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><i class="fas fa-search"></i></button>
+                                <button class="btn btn-default" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </span>
                         </div>
                     </form>
@@ -202,3 +205,82 @@
         </div>
     </div>
 </div>
+--}}
+<nav class="side-navbar">
+    @auth
+    <!-- Sidebar Header-->
+    <div class="sidebar-header d-flex align-items-center">
+        <div class="avatar">
+            <img src="{{asset('img/logo.png')}}" alt="..." class="img-fluid rounded-circle">
+        </div>
+        <div class="title">
+            <h1 class="h4">{{Auth::user()->name}}</h1>
+            <p>{{Auth::user()->username}}</p>
+        </div>
+    </div>
+    <!-- Sidebar Navidation Menus-->
+    <span class="heading">Main</span>
+    <ul class="list-unstyled">
+        <li>
+            <a href="/home">
+                <i class="icon-home"></i>Incio </a>
+        </li>
+        <li>
+            <a href="#courses-menu" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>@lang('menu.courses')</a>
+            <ul id="courses-menu" class="collapse list-unstyled ">
+                <li>
+                    <a href="{{route('course.index')}}">@lang('menu.courses')</a>
+                </li>
+                @can('course.create')
+                <li>
+                    <a href="{{route('course.create')}}">@lang('menu.create')</a>
+                </li>
+                @endcan
+            </ul>
+        </li>
+    </ul>
+    <span class="heading">Catalogs</span>
+    <ul class="list-unstyled">
+        <li>
+            <a href="#professors-menu" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>@lang('menu.professors')</a>
+            <ul id="professors-menu" class="collapse list-unstyled ">
+                <li>
+                    <a href="{{route('professor.index')}}">@lang('menu.professors')</a>
+                </li>
+                @can('professor.create')
+                <li>
+                    <a href="{{route('professor.create')}}">@lang('menu.create')</a>
+                </li>
+                @endcan
+            </ul>
+            <a href="#periods-menu" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>@lang('menu.periods')</a>
+            <ul id="periods-menu" class="collapse list-unstyled ">
+                <li>
+                    <a href="{{route('period.index')}}">@lang('menu.periods')</a>
+                </li>
+                @can('period.create')
+                <li>
+                    <a href="{{route('period.create')}}">@lang('menu.create')</a>
+                </li>
+                @endcan
+            </ul>
+            <a href="#languages-menu" aria-expanded="false" data-toggle="collapse">
+                <i class="icon-interface-windows"></i>@lang('menu.languages')</a>
+            <ul id="languages-menu" class="collapse list-unstyled ">
+                <li>
+                    <a href="{{route('language.index')}}">@lang('menu.languages')</a>
+                </li>
+                @can('period.create')
+                <li>
+                    <a href="{{route('language.create')}}">@lang('menu.create')</a>
+                </li>
+                @endcan
+            </ul>
+        </li>
+
+    </ul>
+    @endauth
+</nav>

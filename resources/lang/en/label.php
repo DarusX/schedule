@@ -9,5 +9,6 @@ return [
     'lastname' => 'Lastname',
     'max_hours' => 'Max. Hours',
     'period' => 'Period',
-    'group' => 'Group'
+    'group' => 'Group',
+    'base' => 'Base'
 ];

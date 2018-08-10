@@ -1,55 +1,66 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+<header class="header">
+    <nav class="navbar">
+        <!-- Search Box-->
+        <div class="search-box">
+            <button class="dismiss">
+                <i class="icon-close"></i>
             </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset('img/logo.png')}}" alt="" height="20px">
-            </a>
+            <form action="{{route('professor.index')}}" method="GET">
+                <input type="search" class="form-control" name="query">
+            </form>
         </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-            </ul>
-
-
-            <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @guest
-                <li>
-                    <a href="{{ route('login') }}">@lang('menu.login')</a>
-                </li>
-                <li>
-                    <a href="{{ route('register') }}">@lang('menu.register')</a>
-                </li>
-                @else
-                <li>
-                    <a href="{{route('home')}}"><i class="fas fa-desktop"></i></a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                        <i class="fas fa-user"></i> {{ Auth::user()->name }}
-                        <span class="caret"></span>
+        <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <!-- Navbar Header-->
+                <div class="navbar-header">
+                    <!-- Navbar Brand -->
+                    <a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block">
+                            @auth
+                            <span>Axolotl</span>
+                            @endauth
+                        </div>
+                        <div class="brand-text d-none d-sm-inline-block d-lg-none">
+                            <strong>
+                                <i class="fas fa-glasses"></i>
+                            </strong>
+                        </div>
                     </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{route('logout')}}" class="logout">@lang('menu.logout')</a>
-                        </li>
-                    </ul>
-                </li>
-                @endguest
-            </ul>
+                    <!-- Toggle Button-->
+                    <a id="toggle-btn" href="#" class="menu-btn active">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <!-- Navbar Menu -->
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                    <!-- Search-->
+                    @auth
+                    <li class="nav-item d-flex align-items-center">
+                        <a id="search" href="#">
+                            <i class="icon-search"></i>
+                        </a>
+                    </li>
+                    <!-- Notifications-->
+                    <!-- Messages-->
+                    @endauth
+                    <!-- Logout    -->
+                    <li class="nav-item">
+                        @auth
+                        <a href="#" class="nav-link logout">
+                            <span class="d-none d-sm-inline">@lang('menu.logout')</span>
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                        @else
+                        <a href="{{route('login')}}" class="nav-link">
+                            <span class="d-none d-sm-inline">@lang('menu.login')</span>
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                        @endauth
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

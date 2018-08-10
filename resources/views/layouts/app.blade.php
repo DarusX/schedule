@@ -8,30 +8,60 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name')}}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
-    <link rel="stylesheet" href="{{asset('css/axolotl.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{{asset('theme/assets/font-awesome/css/font-awesome.min.css')}}">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="{{asset('theme/css/fontastic.css')}}">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{asset('theme/css/style.red.css')}}" id="theme-stylesheet">
+    <!--Toastr-->
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+    <!--DataTables-->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!--Select2-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{{asset('theme/css/custom.css')}}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico">
     @yield('css')
 </head>
 <body>
-    <div id="app">
+    <div class="page">
+        <!-- Main Navbar-->
         @include('layouts.navbar')
-        <div class="container-fluid">
-            <div class="row">
+        <div class="page-content d-flex align-items-stretch">
+            <!-- Side Navbar -->
+            @auth
+            @include('layouts.sidebar')
+            @endauth
+            <div class="content-inner" @guest style="width: 100%" @endguest>
+                <!-- Page Footer-->
                 @yield('content')
+                @include('layouts.footer')
             </div>
         </div>
-
     </div>
 
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="{{asset('theme/assets/popper.js/umd/popper.min.js')}}"> </script>
+    <script src="{{asset('theme/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('theme/assets/jquery.cookie/jquery.cookie.js')}}"> </script>
+    <script src="{{asset('theme/assets/jquery-validation/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <!-- Main File-->
+    <script src="{{asset('theme/js/front.js')}}"></script>
     <script src="{{asset('js/axolotl.js')}}"></script>
     <script>
         toastr.options = {

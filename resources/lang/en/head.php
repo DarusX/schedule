@@ -11,5 +11,6 @@ return [
     'used_hours' => 'Used Hours',
     'courses' => 'Courses',
     'period' => 'Period',
-    'group' => 'Group'
+    'group' => 'Group',
+    'base' => 'Base'
 ];
